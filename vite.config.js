@@ -13,4 +13,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"), // Alias para la carpeta src
     },
   },
+  build: {
+    outDir: 'dist' // Asegúrate de que sea "dist"
+  }
 });
