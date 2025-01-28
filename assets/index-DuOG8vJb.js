@@ -224,7 +224,7 @@ Please change the parent <Route path="${N}"> to <Route path="${N==="/"?"*":`${N}
   background-color: #333;
   color: white;
   text-align: center;
-`,OS=()=>j.jsx(_S,{children:j.jsx("p",{children:"Hecho por Sergio | 2025"})}),jS="/assets/notas_body-D2PcovSb.jpg",IS=Ne.div`
+`,OS=()=>j.jsx(_S,{children:j.jsx("p",{children:"Hecho por Sergio | 2025"})}),jS="/notes-app/assets/notas_body-D2PcovSb.jpg",IS=Ne.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
@@ -266,7 +266,7 @@ Please change the parent <Route path="${N}"> to <Route path="${N==="/"?"*":`${N}
     text-align: center;
     padding: 10px 0;
     font-size: 14px;
-`,$S=()=>j.jsxs(IS,{children:[j.jsxs(VS,{children:[j.jsx(zS,{src:jS,alt:"Imagen de la app"}),j.jsxs(FS,{children:[j.jsx("h2",{children:"Bienvenido a la app de notas"}),j.jsx("p",{children:"Esta es una aplicación donde podrás guardar y organizar tus notas de forma sencilla y eficiente."})]})]}),j.jsx(BS,{children:"© 2025 Sergio. Todos los derechos reservados."})]}),US="/assets/main_body-B1kF8NzN.jpg",bS=pS`
+`,$S=()=>j.jsxs(IS,{children:[j.jsxs(VS,{children:[j.jsx(zS,{src:jS,alt:"Imagen de la app"}),j.jsxs(FS,{children:[j.jsx("h2",{children:"Bienvenido a la app de notas"}),j.jsx("p",{children:"Esta es una aplicación donde podrás guardar y organizar tus notas de forma sencilla y eficiente."})]})]}),j.jsx(BS,{children:"© 2025 Sergio. Todos los derechos reservados."})]}),US="/notes-app/assets/main_body-B1kF8NzN.jpg",bS=pS`
   body {
     font-family: 'Arial', sans-serif;
     margin: 0;
