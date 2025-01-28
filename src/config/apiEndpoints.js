@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://login-service-q30o.onrender.com";
 
 export const API_ENDPOINTS = {
     REFRESH_TOKEN: `${BASE_URL}/api/auth/refresh-token`,
