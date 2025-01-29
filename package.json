@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://SPallazhco.github.io/notes-app",
+  "homepage": "https://spallazhco.github.io/login",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
