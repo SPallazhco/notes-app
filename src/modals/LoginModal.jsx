@@ -93,6 +93,7 @@ const LoginModal = ({ isOpen, onClose }) => {
     const [formData, setFormData] = useState({ email: "", password: "" });
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false)
 
     if (!isOpen) return null;
 
@@ -104,7 +105,7 @@ const LoginModal = ({ isOpen, onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
-
+        setLoading(true)
         try {
             // Llamada al backend
             const response = await apiClient(API_ENDPOINTS.LOGIN, {
@@ -127,10 +128,12 @@ const LoginModal = ({ isOpen, onClose }) => {
             } else {
                 setError("Error al iniciar sesión: Credenciales inválidas o problema con el servidor.");
             }
-            // Cierra el modal
+
         } catch (error) {
             console.log("ERROR LOGIN: " + error);
             setError("Error al iniciar sesión: Credenciales inválidas o problema con el servidor.");
+        } finally {
+            setLoading(false)
         }
     };
 
@@ -156,7 +159,9 @@ const LoginModal = ({ isOpen, onClose }) => {
                         required
                     />
                     {error && <ErrorText>{error}</ErrorText>}
-                    <Button type="submit">Iniciar sesión</Button>
+                    <Button type="submit" disabled={loading}>
+                        {loading ? "Iniciando..." : "Iniciar sesión"}
+                    </Button>
                 </form>
                 <CloseButton onClick={onClose}>Cerrar</CloseButton>
             </ModalContainer>
