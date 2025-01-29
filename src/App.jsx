@@ -7,7 +7,7 @@ import './index.css';
 
 const App = () => {
     return (
-        <BrowserRouter basename="/notes-app">
+        <BrowserRouter basename={import.meta.env.BASE_URL || "/notes-app"}>
             <Routes>
                 {/* Ruta para el login */}
                 <Route path="/login" element={<LoginLayout />} />
