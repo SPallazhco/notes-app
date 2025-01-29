@@ -7,7 +7,7 @@ import path from "path";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: '/notes-app/',
+  base: '/notes-app/', // Asegúrate de que es el nombre del repositorio
   plugins: [react()],
   resolve: {
     alias: {
@@ -15,6 +15,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist' // Asegúrate de que sea "dist"
-  }
+    outDir: 'dist', // Directorio de salida
+  },
 });

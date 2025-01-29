@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        // Redirigir todas las rutas al index.html
-        var pathname = window.location.pathname;
-        var newUrl = window.location.origin + '/notes-app/index.html';
-        window.location.replace(newUrl + '?redirect=' + pathname);
+        (function () {
+            var redirectTo = window.location.origin + '/notes-app/index.html';
+            var path = window.location.pathname.replace('/notes-app', ''); // Ajusta si base cambia
+            window.location.replace(redirectTo + '?redirect=' + encodeURIComponent(path));
+        })();
     </script>
 </head>
 <body>
+<h1>Redirecting...</h1>
 </body>
 </html>
