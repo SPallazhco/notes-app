@@ -76,7 +76,7 @@ const NotesLayout = () => {
                 onEditUser={() => console.log("Edit User")}
                 onLogout={() => {
                     localStorage.removeItem("accessToken");
-                    navigate("/login");
+                    navigate("/notes-app/login");
                 }}
             />
             <main className="flex flex-row flex-1 p-4 gap-4 bg-gray-100">

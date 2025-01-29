@@ -56,7 +56,7 @@ const useTokenRefresher = (baseURL) => {
             } catch (error) {
                 console.error("Session expired. Please log in again." + error);
                 alert("Session expired. Please log in again.");
-                window.location.href = "/login"; // Redirige al login si el refresh falla
+                window.location.href = "/notes-app/login"; // Redirige al login si el refresh falla
             } finally {
                 setIsRefreshing(false);
             }
