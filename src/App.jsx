@@ -6,8 +6,8 @@ import './index.css';
 
 const App = () => {
     return (
-        // Usa solo HashRouter, no BrowserRouter
-        <HashRouter basename="/notes-app">
+        // Solo usa HashRouter y elimina el uso de BrowserRouter
+        <HashRouter>
             <Routes>
                 {/* Ruta para el login */}
                 <Route path="/login" element={<LoginLayout />} />
