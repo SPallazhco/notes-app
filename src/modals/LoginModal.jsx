@@ -124,7 +124,7 @@ const LoginModal = ({ isOpen, onClose }) => {
             console.log("Inicio de sesión exitoso", response);
 
             // Redirigir a la página de notas
-            navigate("/notes-app/notes");
+            navigate("/notes");
             } else {
                 setError("Error al iniciar sesión: Credenciales inválidas o problema con el servidor.");
             }
