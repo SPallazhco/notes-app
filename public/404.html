@@ -7,7 +7,7 @@
     <script>
         (function () {
             var redirectTo = window.location.origin + '/notes-app/index.html';
-            var path = window.location.pathname.replace('/notes-app/notes-app/', ''); // Ajusta si base cambia
+            var path = window.location.pathname.replace('/notes-app', ''); // Ajusta si base cambia
             window.location.replace(redirectTo + '?redirect=' + encodeURIComponent(path));
         })();
     </script>
