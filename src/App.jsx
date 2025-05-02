@@ -3,6 +3,7 @@ import LoginLayout from "./screens/Login/LoginLayout.jsx";
 import NotesLayout from "./screens/notes/NotesLayout.jsx";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 import './index.css';
+import PrivacyPolicy from './screens/Login/components/PrivacyPolicyModal.jsx';// ajusta la ruta si es diferente
 
 const App = () => {
     return (
@@ -11,7 +12,7 @@ const App = () => {
             <Routes>
                 {/* Ruta para el login */}
                 <Route path="/login" element={<LoginLayout />} />
-
+                <Route path="/privacy" element={<PrivacyPolicy />} />
                 {/* Rutas protegidas */}
                 <Route
                     path="/notes"

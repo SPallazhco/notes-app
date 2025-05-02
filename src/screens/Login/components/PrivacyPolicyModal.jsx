@@ -1,108 +1,102 @@
 import React from "react";
 import styled from "styled-components";
 
-const Overlay = styled.div`
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
+const Wrapper = styled.div`
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: #f6f7fb;
+  padding: 20px;
 `;
 
-const ModalContainer = styled.div`
-  background-color: #1f1f1f;
-  color: #f5f5f5;
-  width: 90%;
-  max-width: 700px;
-  max-height: 80vh;
-  border-radius: 16px;
-  padding: 30px;
-  overflow-y: auto;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-  font-family: 'Segoe UI', sans-serif;
+const Container = styled.div`
+  padding: 40px 30px;
+  max-width: 800px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
 `;
 
-const CloseButton = styled.button`
-  background: #ff4d4f;
-  border: none;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 10px;
+const Title = styled.h1`
+  font-size: 32px;
   font-weight: bold;
-  cursor: pointer;
-  float: center;
-
-  &:hover {
-    background: #e04143;
-  }
-`;
-
-const Title = styled.h2`
-  font-size: 24px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 10px;
+  color: #1a1a1a;
+  margin-bottom: 24px;
   text-align: center;
 `;
 
 const Paragraph = styled.p`
-  margin-bottom: 15px;
-  line-height: 1.6;
-  color: #dcdcdc;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
 `;
 
-const Strong = styled.span`
-  color: #ffffff;
+const SectionTitle = styled.span`
+  display: block;
   font-weight: bold;
+  color: #007BFF;
+  margin-top: 20px;
 `;
 
-const EmailLink = styled.a`
-  color: #40a9ff;
-  text-decoration: underline;
+const ContactLink = styled.a`
+  color: #007BFF;
+  text-decoration: none;
 
   &:hover {
-    color: #1890ff;
+    text-decoration: underline;
   }
 `;
 
-const PrivacyPolicyModal = ({ onClose }) => {
-    return (
-        <Overlay>
-            <ModalContainer>
-                <Title>Políticas de Privacidad</Title>
+const FooterText = styled.p`
+  text-align: center;
+  margin-top: 30px;
+  font-style: italic;
+  font-size: 13px;
+  color: #666;
+`;
 
-                <Paragraph>
-                    Gracias por confiar en nuestra aplicación <Strong>Notes App</Strong>. Nos comprometemos a proteger la información de nuestros usuarios.
-                </Paragraph>
+const PrivacyPolicy = () => (
+    <Wrapper>
+        <Container>
+            <Title>Políticas de Privacidad</Title>
+            <Paragraph>
+                Gracias por confiar en nuestra aplicación <strong>Notes App</strong>. Nos comprometemos a proteger tu información personal y brindarte una experiencia segura.
+            </Paragraph>
 
-                <Paragraph>
-                    <Strong>Información que recopilamos:</Strong> Correo electrónico y notas creadas por ti (título, descripción, fecha de creación).
-                </Paragraph>
+            <SectionTitle>📥 Información que recopilamos:</SectionTitle>
+            <Paragraph>
+                Correo electrónico y las notas que creas en la aplicación (título, descripción, fecha de creación).
+            </Paragraph>
 
-                <Paragraph>
-                    <Strong>Uso de tu información:</Strong> Solo se usa para autenticar tu cuenta y gestionar tus notas. No compartimos tus datos con terceros.
-                </Paragraph>
+            <SectionTitle>🔐 Uso de la información:</SectionTitle>
+            <Paragraph>
+                Solo usamos tu información para autenticarte y gestionar tus notas. <strong>No compartimos tus datos con terceros.</strong>
+            </Paragraph>
 
-                <Paragraph>
-                    <Strong>Seguridad:</Strong> Usamos HTTPS y tokens seguros. Al cerrar sesión eliminamos información sensible localmente.
-                </Paragraph>
+            <SectionTitle>🛡️ Seguridad:</SectionTitle>
+            <Paragraph>
+                Utilizamos conexiones seguras (HTTPS) y autenticación con tokens. Al cerrar sesión, eliminamos los datos almacenados localmente.
+            </Paragraph>
 
-                <Paragraph>
-                    <Strong>Público objetivo:</Strong> Esta app no está dirigida a menores de 13 años.
-                </Paragraph>
+            <SectionTitle>👶 Público objetivo:</SectionTitle>
+            <Paragraph>
+                Esta aplicación no está dirigida a menores de 13 años.
+            </Paragraph>
 
-                <Paragraph>
-                    <Strong>Contacto:</Strong> Para preguntas sobre privacidad, escríbenos a{" "}
-                    <EmailLink href="mailto:sergiopall1996@gmail.com">
-                        sergiopall199@gmail.com
-                    </EmailLink>.
-                </Paragraph>
-                <CloseButton onClick={onClose}>Cerrar</CloseButton>
-            </ModalContainer>
-        </Overlay>
-    );
-};
+            <SectionTitle>📫 Contacto:</SectionTitle>
+            <Paragraph>
+                Si tienes preguntas sobre esta política, escríbenos a{" "}
+                <ContactLink href="mailto:sergiopall199@gmail.com">
+                    sergiopall199@gmail.com
+                </ContactLink>.
+            </Paragraph>
 
-export default PrivacyPolicyModal;
+            <FooterText>Última actualización: Mayo 2025</FooterText>
+        </Container>
+    </Wrapper>
+);
+
+export default PrivacyPolicy;

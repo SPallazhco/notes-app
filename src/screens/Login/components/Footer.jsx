@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import PrivacyPolicyModal from "./PrivacyPolicyModal";
 
 const FooterContainer = styled.footer`
   padding: 10px;
@@ -10,12 +9,10 @@ const FooterContainer = styled.footer`
   font-size: 14px;
 `;
 
-const LinkButton = styled.button`
-  background: none;
-  border: none;
+const StyledLink = styled.a`
+  display: inline-block;
   color: #40a9ff;
   text-decoration: underline;
-  cursor: pointer;
   margin-top: 5px;
 
   &:hover {
@@ -24,15 +21,16 @@ const LinkButton = styled.button`
 `;
 
 const Footer = () => {
-    const [showPrivacy, setShowPrivacy] = useState(false);
-
     return (
         <FooterContainer>
             <p>Hecho por Sergio | 2025</p>
-            <LinkButton onClick={() => setShowPrivacy(true)}>
+            <StyledLink
+                href="#/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 Políticas de privacidad
-            </LinkButton>
-            {showPrivacy && <PrivacyPolicyModal onClose={() => setShowPrivacy(false)} />}
+            </StyledLink>
         </FooterContainer>
     );
 };
