@@ -40,13 +40,38 @@ const Title = styled.h2`
     color: #333;
 `;
 
+const Field = styled.label`
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 16px;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 500;
+`;
+
 const Input = styled.input`
-    width: 94%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 6px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
     font-size: 16px;
+    color: #111827;
+    background-color: #f9fafb;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder {
+        color: #9ca3af;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #7c3aed;
+        box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.17);
+        background-color: #fff;
+    }
 `;
 
 const Button = styled.button`
@@ -70,6 +95,23 @@ const Button = styled.button`
         background-color: #ccc;
         cursor: not-allowed;
     }
+`;
+
+const CloseButton = styled(Button)`
+    background: #e53935;
+    margin-top: 10px;
+
+    &:hover {
+        background: #b71c1c;
+    }
+`;
+
+const ErrorText = styled.p`
+    color: #dc2626;
+    font-size: 14px;
+    margin-top: -6px;
+    margin-bottom: 8px;
+    text-align: left;
 `;
 
 const SuccessModal = styled.div`
@@ -162,42 +204,52 @@ const RegistroModal = ({ isOpen, onClose }) => {
                 <ModalContainer>
                     <Title>Registro</Title>
                     <form onSubmit={handleSubmit}>
-                        <Input
-                            type="email"
-                            name="email"
-                            placeholder="Correo electrónico"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                        />
-                        {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
-                        <Input
-                            type="password"
-                            name="password"
-                            placeholder="Contraseña"
-                            value={formData.password}
-                            onChange={handleInputChange}
-                        />
-                        {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
-                        <Input
-                            type="password"
-                            name="confirmPassword"
-                            placeholder="Confirmar contraseña"
-                            value={formData.confirmPassword}
-                            onChange={handleInputChange}
-                        />
+                        <Field>
+                            Correo electrónico
+                            <Input
+                                type="email"
+                                name="email"
+                                placeholder="escribe@correo.com"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                autoComplete="email"
+                                required
+                            />
+                        </Field>
+                        {errors.email && <ErrorText>{errors.email}</ErrorText>}
+                        <Field>
+                            Contraseña
+                            <Input
+                                type="password"
+                                name="password"
+                                placeholder="••••••••"
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                autoComplete="new-password"
+                                required
+                            />
+                        </Field>
+                        {errors.password && <ErrorText>{errors.password}</ErrorText>}
+                        <Field>
+                            Confirmar contraseña
+                            <Input
+                                type="password"
+                                name="confirmPassword"
+                                placeholder="Repite tu contraseña"
+                                value={formData.confirmPassword}
+                                onChange={handleInputChange}
+                                autoComplete="new-password"
+                                required
+                            />
+                        </Field>
                         {errors.confirmPassword && (
-                            <p style={{ color: "red" }}>{errors.confirmPassword}</p>
+                            <ErrorText>{errors.confirmPassword}</ErrorText>
                         )}
                         <Button type="submit" disabled={isSubmitting}>
                             {isSubmitting ? "Registrando..." : "Registrar"}
                         </Button>
                     </form>
-                    <Button
-                        style={{ backgroundColor: "#e53935", marginTop: "10px" }}
-                        onClick={onClose}
-                    >
-                        Cerrar
-                    </Button>
+                    <CloseButton onClick={onClose}>Cerrar</CloseButton>
                 </ModalContainer>
             )}
         </Overlay>

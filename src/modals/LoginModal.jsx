@@ -43,13 +43,38 @@ const Title = styled.h2`
     color: #333;
 `;
 
+const Field = styled.label`
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 16px;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 500;
+`;
+
 const Input = styled.input`
-    width: 94%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 6px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
     font-size: 16px;
+    color: #111827;
+    background-color: #f9fafb;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder {
+        color: #9ca3af;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #7c3aed;
+        box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.17);
+        background-color: #fff;
+    }
 `;
 
 const Button = styled.button`
@@ -142,22 +167,30 @@ const LoginModal = ({ isOpen, onClose }) => {
             <ModalContainer>
                 <Title>Iniciar sesión</Title>
                 <form onSubmit={handleSubmit}>
-                    <Input
-                        type="email"
-                        name="email"
-                        placeholder="Correo electrónico"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <Input
-                        type="password"
-                        name="password"
-                        placeholder="Contraseña"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                        required
-                    />
+                    <Field>
+                        Correo electrónico
+                        <Input
+                            type="email"
+                            name="email"
+                            placeholder="escribe@correo.com"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            required
+                            autoComplete="email"
+                        />
+                    </Field>
+                    <Field>
+                        Contraseña
+                        <Input
+                            type="password"
+                            name="password"
+                            placeholder="••••••••"
+                            value={formData.password}
+                            onChange={handleInputChange}
+                            required
+                            autoComplete="current-password"
+                        />
+                    </Field>
                     {error && <ErrorText>{error}</ErrorText>}
                     <Button type="submit" disabled={loading}>
                         {loading ? "Iniciando..." : "Iniciar sesión"}

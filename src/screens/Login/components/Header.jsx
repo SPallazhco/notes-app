@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import RegistroModal from "../../../modals/RegistroModal.jsx";
 import LoginModal from "../../../modals/LoginModal.jsx";
+import logoSergi from "../../../assets/images/logo_sergi.png";
 
 const HeaderContainer = styled.header`
     display: flex;
@@ -46,6 +47,11 @@ const Button = styled.button`
     }
 `;
 
+const Logo = styled.img`
+    height: 80px;
+    width: auto;
+`;
+
 const Header = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [isModalLoginOpen, setModalLoginOpen] = useState(false);
@@ -58,7 +64,7 @@ const Header = () => {
     return (
         <>
             <HeaderContainer>
-                <div>SP</div>
+                <Logo src={logoSergi} alt="Logo de Sergi" />
                 <ButtonContainer>
                     <Button onClick={openModal}>Registro</Button>
                     <Button onClick={openModalLogin}>Ingreso</Button>
